@@ -1,0 +1,241 @@
+
+//selector inheritances för layout
+%pagesection {
+    width: 100%;
+    padding: 80px 0;
+    h2 {
+        margin-bottom: 35px;
+    }
+}
+
+//Webbplatsens uppbyggnad
+header {
+    width: 100%;
+    padding: 20px 0;
+    background-color: $primary-grey;
+    position: fixed;
+    top: 0;
+    box-shadow: 0 2px 7px $primary-darkgrey;
+    img {
+        float: left;
+        margin-left: 40px;
+        width: 180px;
+        height: auto;
+    }
+    #hamburgermenu {
+        display: none;
+    }
+    nav {
+        margin-top: 15px;
+        @extend %nav;
+    }
+
+    @include mediaQueries(959px, 650px) {
+        @include hamburgermenu();
+    }
+    @include mediaQueries(649px) {
+        @include hamburgermenu();
+    }
+}
+#start {
+    margin-top: 93px;
+    @extend %pagesection;
+    height: 400px;
+    background-image: url(../pics/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    h1 {
+        margin: 100px 0 20px 0;
+    }
+    p {
+        color: $primary-grey;
+        margin: 0 auto;
+        text-align: center;
+    }
+    @include mediaQueries(649px) {
+        p {
+            max-width: 80%;
+        }
+    }
+}
+.innerContainer {
+    width: 100%;
+    max-width: 940px;
+    margin: 0 auto;
+    overflow: auto;
+    @include mediaQueries(959px, 650px) {
+        max-width: 90%;
+    }
+    @include mediaQueries(649px) {
+        max-width: 90%;
+    }
+}
+#project {
+    @extend %pagesection;
+    background-color: lighten($primary-lightblue, 10);
+    .innerContainer {
+        div {
+            float: left;
+            width: 46%;
+            padding: 2%;
+        }
+        img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 15px;
+        }
+        @include mediaQueries(649px) {
+            div {
+                float: none;
+                width: 100%;
+                max-width: 400px;
+                margin: 0 auto 30px auto;
+                padding: 0;
+            }
+        }
+    }
+}
+#about {
+    @extend %pagesection;
+    .innerContainer {
+        padding-bottom: 30px;
+        img {
+            float: left;
+            width: 100%;
+            max-width: 45%;
+            margin-right: 5%;
+        }
+        div {
+            float: left;
+            max-width: 50%;
+        }
+        p {
+            margin-bottom: 30px;
+        }
+        .button, .btn:visited {
+            @extend %btn;
+            
+        }
+        .button:hover {
+            @extend %btn-hover;
+        }
+    }
+    @include mediaQueries(649px) {
+        .innerContainer {
+            max-width: 400px;
+            padding-bottom: 15px;
+            img, div {
+                float: none;
+                max-width: 100%;
+                margin: 0 0 15px 0;
+            }
+            p {
+                margin-bottom: 40px;
+            }
+        }
+    }
+}
+#service {
+    @extend %pagesection;
+    background-color: $primary-grey;
+    img {
+        width: 50px;
+        height: auto;
+        margin-bottom: 20px;
+    }
+    .innerContainer {
+        div {
+            float: left;
+            width: 21%;
+            padding: 2%;
+            text-align: center;
+        }
+        @include mediaQueries(959px, 650px) {
+            div {
+                float: left;
+                width: 42%;
+                padding: 4%;
+                text-align: center;
+            }
+        }
+    }
+    @include mediaQueries(649px) {
+        .innerContainer {
+            max-width: 300px;
+            div {
+                float: none;
+                width: 100%;
+                padding: 0;
+                margin-bottom: 40px;
+                text-align: center;
+            }
+        }
+    }
+}
+#contact {
+    @extend %pagesection;
+    background-color: lighten($primary-lightblue, 10);
+    form {
+        @extend %form;
+        input {
+            width: 44%;
+            float: left;
+        }
+        #input1 {
+            margin-right: 4%;
+        }
+    }
+    @include mediaQueries(959px, 650px) {
+        form {
+            max-width: 500px;
+            width: 80%;
+        }
+    }
+    @include mediaQueries(649px) {
+        form {
+            width: 80%;
+            padding: 20px;
+            input {
+                float: none;
+                margin: 0;
+                width: 96.5%;
+            }
+            #input1 {
+                margin-bottom: 15px;
+            }
+            #submit {
+                width: 100%;
+            }
+        }
+    }
+}
+
+footer {
+    width: 100%;
+    background-color: black;
+    padding: 40px 0 15px 0;
+    overflow: auto;
+    p {
+        color: darken($primary-grey, 30);
+        font-size: 1rem;
+        margin: 0 0 5px 30px;
+        float: left;
+    }
+    a, a:visited {
+        color: darken($primary-grey, 30);
+        text-decoration: underline;
+    }
+    a:hover {
+        color: $primary-lightblue;
+    }
+    div {
+        float: right;
+        margin-right: 30px;
+    }
+    @include mediaQueries(649px) {
+        div {
+            float: left;
+        }
+    }
+}

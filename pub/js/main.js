@@ -1,1 +1,2 @@
 "use strict";var navigation=document.getElementById("navigation"),menuicon=document.getElementById("hamburgermenu");function mobileMenu(){"menudefault"===navigation.className?(navigation.className="menudown",menuicon.src="pics/hamburgerclose.svg"):(navigation.className="menudefault",menuicon.src="pics/hamburger.svg")}navigation.addEventListener("click",mobileMenu,!1),console.log("Hello from two!");
+//# sourceMappingURL=main.js.map

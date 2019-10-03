@@ -8,6 +8,7 @@ const browserSync = require("browser-sync").create();
 const sass = require("gulp-sass");
 sass.compiler = require("node-sass");
 const sourcemaps = require("gulp-sourcemaps");
+const babel = require("gulp-babel");
 
 
 //Sökvägar
@@ -28,8 +29,11 @@ function copyHTML() {
 //Task: Kopiera, sammanslå och minifiera js-filer
 function jsTask() {
     return src(files.jsPath)
+        .pipe(sourcemaps.init())
+        .pipe(babel())
         .pipe(concat("main.js"))
         .pipe(uglify())
+        .pipe(sourcemaps.write("."))
         .pipe(dest("pub/js"))
         .pipe(browserSync.stream())
 }
